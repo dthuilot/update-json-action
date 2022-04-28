@@ -2,15 +2,19 @@
 name: 'Hello World'
 description: 'Greet someone and record the time'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  json_field:         # id of input
+    description: 'JSON field to update'
     required: true
-    default: 'World'
+  json_value:         # id of input
+    description: 'New value for the JSON field'
+    required: true
+    default: 'Foo'
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  json_old_value:     # id of output
+    description: 'The former value of the JSON field'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.json_field }}
+    - ${{ inputs.json_value }}
