@@ -5,7 +5,7 @@ This action update a JSON field with a new value.
 ## Inputs
 
 ```txt
-json_file_path: Path of the json file in the repository
+json_file_path: Path of the JSON file in the repository
 json_field: JSON field to update
 json_value: New value for the JSON field
 ```
