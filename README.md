@@ -1,21 +1,28 @@
-# Hello world docker action
+# Update JSON field docker action
 
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+This action update a JSON field with a new value.
 
 ## Inputs
 
-## `who-to-greet`
-
-**Required** The name of the person to greet. Default `"World"`.
+json_file_path: Path of the json file in the repository
+json_field: JSON field to update
+json_value: New value for the JSON field
 
 ## Outputs
 
-## `time`
+json_old_value: Former JSON Field value
 
-The time we greeted you.
+Can be used with :  ${{ steps.STEP_ID.outputs.json_old_value }}
 
 ## Example usage
 
-uses: actions/hello-world-docker-action@v1
-with:
-  who-to-greet: 'Mona the Octocat'
+- name: Update JSON file
+  id: update_json_file
+  uses: dthuilot/update-json-action@v0.22
+  with:
+    json_file_path: 'data.json'
+    json_field: 'image'
+    json_value: 'NewValue'
+- name: Get the former value
+  run: echo "The former value was ${{ steps.update_json_file.outputs.json_old_value }}
+  
