@@ -11,7 +11,7 @@ echo "json_value: $json_value"
 cat /github/workspace/$json_file_path
 
 # Extract current value
-# cat $1| jq '.[].images'
+cat /github/workspace/$json_file_path| jq ".[].$json_field"
 
 #json_old_value= cat $json_file_path| jq '.[].images'
 #json_old_value=$(date)
