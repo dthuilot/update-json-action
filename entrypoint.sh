@@ -18,6 +18,6 @@ json_old_value=$(cat $json_file_path| jq ".[].$json_field")
 # sed -i '' 's/$json_new_value/$json_old_value/g' $json_file_path
 
 # Normal sed command with updated space as separator
-sed -i 'foo.txt' "s|$json_new_value|$json_old_value|g" $json_file_path 
+sed -i "s|$json_new_value|$json_old_value|g" $json_file_path 
 
 echo "::set-output name=json_old_value::$json_old_value"
