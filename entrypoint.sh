@@ -4,14 +4,16 @@ json_file_path=$1
 json_field=$2
 json_value=$3
 
-#echo "json_file_path $1"
-#echo "json_field $2"
-#echo "json_value $3"
+echo "json_file_path: $json_file_path"
+echo "json_field: $json_field"
+echo "json_value: $json_value"
+
+cat /github/workspace/$json_file_path
 
 # Extract current value
-cat $1| jq '.[].images'
+# cat $1| jq '.[].images'
 
 #json_old_value= cat $json_file_path| jq '.[].images'
 #json_old_value=$(date)
 
-echo "::set-output name=json_old_value::$json_old_value"
+# echo "::set-output name=json_old_value::$json_old_value"
