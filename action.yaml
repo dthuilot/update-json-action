@@ -2,6 +2,9 @@
 name: 'Hello World'
 description: 'Greet someone and record the time'
 inputs:
+  json_file_path:     # id of input
+      description: 'Path to the JSON file to update'
+      required: true
   json_field:         # id of input
     description: 'JSON field to update'
     required: true
@@ -16,5 +19,6 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.json_field }}
+    - ${{ inputs.json_file_path }}
+    - ${{ inputs.json_field }}    
     - ${{ inputs.json_value }}
