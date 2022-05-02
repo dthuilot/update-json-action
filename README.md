@@ -1,6 +1,6 @@
 # Update JSON field docker action
 
-This action update a JSON field with a new value.
+This github action update a JSON field with a new value.
 
 ## Inputs
 
@@ -21,7 +21,7 @@ json_old_value: Former JSON Field value
 ```shell
 - name: Update JSON file
   id: update_json_file
-  uses: dthuilot/update-json-action@v0.22
+  uses: dthuilot/update-json-action@v1
   with:
     json_file_path: 'data.json'
     json_field: 'image'
