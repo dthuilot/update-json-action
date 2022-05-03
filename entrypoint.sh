@@ -9,10 +9,7 @@ echo "json_field: $json_field"
 echo "json_new_value: $json_new_value"
 
 # Extract current value
-json_old_value=$(cat $json_file_path| jq ".[].$json_field")
-
-# Remove the double quotes
-# json_old_value=`sed -e 's/^"//' -e 's/"$//' <<<"$json_old_value"`
+json_old_value=$(cat $json_file_path| jq -r ".[].$json_field")
 
 # Normal sed command with updated space as separator
 sed -i.tmp "s|$json_old_value|$json_new_value|" $json_file_path 
